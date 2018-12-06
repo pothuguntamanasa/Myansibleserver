@@ -5,5 +5,4 @@
   - name: des tree installation
     apt:
        name: tree
-       start: present
-       
+       state: present

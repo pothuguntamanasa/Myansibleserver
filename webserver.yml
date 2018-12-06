@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  becomes: yes
+  become: yes
   tasks:
 - name: Iam going to install git on all nodes
   apt:

@@ -2,24 +2,25 @@
 - hosts: all
   become: yes
   tasks:
-  - name: desc Install apache2 on ubuntu server
+  - name:  install webserver on Ubuntu(apache2)
     apt:
-     name: apache2
-     state: present
+      name: apache2
+      state: present
     when: ansible_os_family =="Debian"
-  - name: start webserver on ubuntu server apache2
-    service:
+  - name: start webserver on Ubuntu(apache2)
+    service: 
       name: apache2
       state: started
     when: ansible_os_family =="Debian"
+  
 
-  - name: desc Install httpd on RedHat server
-    apt:
-     name: httpd
-     state: present
-    when: ansible_os_family =="RedHat" 
-  - name: desc Install httpd on RedHat server
+  - name: install webserver on rehat (httpd)
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family =="RedHat"
+  - name: start webserver on rehat
     service:
       name: httpd
       state: started
-    when: ansible_os_family =="RedHat" 
+    when: ansible_os_family =="RedHat"

@@ -7,17 +7,17 @@
      name: "{{ item }}"
      state: present
   with_items:
-  - git
-  - tree
-  - wget
-  when: ansible_os_family =="Debian"
+    - git
+    - tree
+    - wget
+  when: ansible_os_family == "Debian"
 
 - name: des install git, tree and wget on redhat
   yum:
     name: "{{ item }}"
     state: present
   with_items:
-  - git
-  - tree
-  - wget
+    - git
+    - tree
+    - wget
   when: ansible_os_family =="RedHat"

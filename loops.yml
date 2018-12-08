@@ -1,8 +1,8 @@
 ---
 - hosts: all
   become: yes
-  tasks:
-  - name: des install git, tree and wget on ubuntu
+  tasks: 
+  - name: des install git, tree and wget on unbuntu
     apt:
       name: "{{ item }}"
       state: present
@@ -12,12 +12,12 @@
       - wget
     when: ansible_os_family =="Debian"
 
-- name: des install git, tree and wget on redhat
-  yum:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - git
-    - tree
-    - wget
-  when: ansible_os_family =="RedHat"
+  - name: des install git, tree and wget on redhat
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - git
+      - tree
+      - wget
+    when: ansible_os_family =="RedHat"

@@ -1,5 +1,5 @@
 ---
-- hosts: webservers
+- hosts: ungroup
   become: yes
   tasks:
   - name: Install apache2 on Ubuntu server
@@ -23,3 +23,8 @@
      name: "{{webserverpackonredhat}}"
      state: started
     when: ansible_os_family =="RedHat"
+  - name: Remove Git 
+    apt:
+     name: "{{mygit}}"
+     state: absent
+    when: ansible_os_family =="Debian"

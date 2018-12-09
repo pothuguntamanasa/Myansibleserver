@@ -19,7 +19,7 @@
       name: "{{webserveronredhat}}"
       state: present
     when: ansible_os_family =="RedHat"
-  - name: start webserver on rehat
+  - name: start webserver on redhat
     service:
       name: "{{webserveronredhat}}"
       state: started

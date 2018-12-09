@@ -1,0 +1,24 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+  - name: Install apache2 on Ubuntu server
+    apt:
+     name: "{{webserverpackonubuntu}}"
+     state: present
+    when: ansible_os_family == "Debian"
+  - name: Webserver apache2 server
+    service: 
+     name: "{{webserverpackonubuntu}}"
+     state: started
+    when: ansible_os_family =="Debian"
+
+  - name: Install httpd on RedHat server
+    apt:
+     name: "{{webserverpackonredhat}}"
+     state: present
+    when: ansible_os_family == "RedHat"
+  - name: Webserver on "RedHat"
+    service: 
+     name: "{{webserverpackonredhat}}"
+     state: started
